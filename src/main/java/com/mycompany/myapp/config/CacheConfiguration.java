@@ -42,6 +42,23 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.myapp.domain.User.class.getName());
             createCache(cm, com.mycompany.myapp.domain.Authority.class.getName());
             createCache(cm, com.mycompany.myapp.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.mycompany.myapp.domain.Restaurant.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Restaurant.class.getName() + ".cooperatives");
+            createCache(cm, com.mycompany.myapp.domain.Cooperative.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Cooperative.class.getName() + ".restaurants");
+            createCache(cm, com.mycompany.myapp.domain.Basket.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Product.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Payment.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Course.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Order.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Role.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Cooperative.class.getName() + ".users");
+            createCache(cm, com.mycompany.myapp.domain.Produit.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Produit.class.getName() + ".paniers");
+            createCache(cm, com.mycompany.myapp.domain.Panier.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Panier.class.getName() + ".produits");
+            createCache(cm, com.mycompany.myapp.domain.Commande.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Paiement.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

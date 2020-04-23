@@ -1,0 +1,33 @@
+{
+    "name": "Panier",
+    "fields": [
+        {
+            "fieldName": "etat",
+            "fieldType": "Etat",
+            "fieldValues": "VALIDE,ENCOURS,ANNULE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "produit",
+            "otherEntityRelationshipName": "panier",
+            "relationshipName": "produit",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20200423122400",
+    "entityTableName": "panier",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
