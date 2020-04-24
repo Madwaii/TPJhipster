@@ -1,6 +1,7 @@
 package com.mycompany.myapp.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -33,6 +34,10 @@ public class Restaurant implements Serializable {
     @NotNull
     @Column(name = "type", nullable = false)
     private String type;
+
+    @ManyToOne
+    @JsonIgnoreProperties("restaurants")
+    private User user;
 
     @ManyToMany(mappedBy = "restaurants")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -72,6 +77,19 @@ public class Restaurant implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Restaurant user(User user) {
+        this.user = user;
+        return this;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Set<Cooperative> getCooperatives() {

@@ -18,6 +18,7 @@
       },
       "nom": "Nom",
       "type": "Type",
+      "user": "User",
       "cooperative": "Cooperative"
     }
   }

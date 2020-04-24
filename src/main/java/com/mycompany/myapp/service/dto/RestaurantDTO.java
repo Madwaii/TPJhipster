@@ -18,6 +18,8 @@ public class RestaurantDTO implements Serializable {
     private String type;
 
 
+    private Long userId;
+
     public Long getId() {
         return id;
     }
@@ -40,6 +42,14 @@ public class RestaurantDTO implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     @Override
@@ -69,6 +79,7 @@ public class RestaurantDTO implements Serializable {
             "id=" + getId() +
             ", nom='" + getNom() + "'" +
             ", type='" + getType() + "'" +
+            ", userId=" + getUserId() +
             "}";
     }
 }

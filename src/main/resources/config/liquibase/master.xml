@@ -35,5 +35,6 @@
     <include file="config/liquibase/changelog/20200423122300_added_entity_constraints_Produit.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200423122400_added_entity_constraints_Panier.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200423122500_added_entity_constraints_Commande.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200422124300_added_entity_constraints_Restaurant.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

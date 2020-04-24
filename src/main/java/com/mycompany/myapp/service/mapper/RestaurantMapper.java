@@ -9,10 +9,13 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link Restaurant} and its DTO {@link RestaurantDTO}.
  */
-@Mapper(componentModel = "spring", uses = {})
+@Mapper(componentModel = "spring", uses = {UserMapper.class})
 public interface RestaurantMapper extends EntityMapper<RestaurantDTO, Restaurant> {
 
+    @Mapping(source = "user.id", target = "userId")
+    RestaurantDTO toDto(Restaurant restaurant);
 
+    @Mapping(source = "userId", target = "user")
     @Mapping(target = "cooperatives", ignore = true)
     @Mapping(target = "removeCooperative", ignore = true)
     Restaurant toEntity(RestaurantDTO restaurantDTO);

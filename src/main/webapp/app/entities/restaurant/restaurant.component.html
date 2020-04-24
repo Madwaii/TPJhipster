@@ -25,6 +25,7 @@
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="nom"><span jhiTranslate="myblogApp.restaurant.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="type"><span jhiTranslate="myblogApp.restaurant.type">Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="userId"><span jhiTranslate="myblogApp.restaurant.user">User</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -33,6 +34,9 @@
                     <td><a [routerLink]="['/restaurant', restaurant.id, 'view']">{{ restaurant.id }}</a></td>
                     <td>{{ restaurant.nom }}</td>
                     <td>{{ restaurant.type }}</td>
+                    <td>
+                        {{ restaurant.userId }}
+                    </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

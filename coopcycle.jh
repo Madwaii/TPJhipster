@@ -43,6 +43,7 @@ entity Paiement {
 }
 
 relationship ManyToOne {
+  Restaurant{user} to User
   Role{user} to User
   Commande{user} to User
   Commande{restaurant} to Restaurant

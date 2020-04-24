@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 
 import { IRestaurant, Restaurant } from 'app/shared/model/restaurant.model';
 import { RestaurantService } from './restaurant.service';
+import { IUser } from 'app/core/user/user.model';
+import { UserService } from 'app/core/user/user.service';
 
 @Component({
   selector: 'jhi-restaurant-update',
@@ -14,18 +16,27 @@ import { RestaurantService } from './restaurant.service';
 })
 export class RestaurantUpdateComponent implements OnInit {
   isSaving = false;
+  users: IUser[] = [];
 
   editForm = this.fb.group({
     id: [],
     nom: [null, [Validators.required]],
-    type: [null, [Validators.required]]
+    type: [null, [Validators.required]],
+    userId: []
   });
 
-  constructor(protected restaurantService: RestaurantService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    protected restaurantService: RestaurantService,
+    protected userService: UserService,
+    protected activatedRoute: ActivatedRoute,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ restaurant }) => {
       this.updateForm(restaurant);
+
+      this.userService.query().subscribe((res: HttpResponse<IUser[]>) => (this.users = res.body || []));
     });
   }
 
@@ -33,7 +44,8 @@ export class RestaurantUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: restaurant.id,
       nom: restaurant.nom,
-      type: restaurant.type
+      type: restaurant.type,
+      userId: restaurant.userId
     });
   }
 
@@ -56,7 +68,8 @@ export class RestaurantUpdateComponent implements OnInit {
       ...new Restaurant(),
       id: this.editForm.get(['id'])!.value,
       nom: this.editForm.get(['nom'])!.value,
-      type: this.editForm.get(['type'])!.value
+      type: this.editForm.get(['type'])!.value,
+      userId: this.editForm.get(['userId'])!.value
     };
   }
 
@@ -74,5 +87,9 @@ export class RestaurantUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
+  }
+
+  trackById(index: number, item: IUser): any {
+    return item.id;
   }
 }
